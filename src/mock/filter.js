@@ -1,5 +1,5 @@
 // Список названий фильтров
-const filterNames = [`all`, `overdue`, `favorites`, `repeating`, `archive`];
+const filterNames = [`all`, `overdue`, `today`, `favorites`, `repeating`, `archive`];
 
 // Возвращает фильтры
 const generateFilters = () => {

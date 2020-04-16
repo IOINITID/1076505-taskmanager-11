@@ -1,4 +1,5 @@
 import {COLORS} from "../const.js";
+import {getRandomIntegerNumber, getRandomArrayItem} from "../utils.js";
 
 // Описание карточек
 const DescriptionItems = [`Изучить теорию`, `Сделать домашку`, `Пройти интенсив на соточку`];
@@ -12,13 +13,6 @@ const DefaultRepeatingDays = {
   "fr": false,
   "sa": false,
   "su": false,
-};
-
-// Возвращает случайный элемент массива
-const getRandomArrayItem = (array) => {
-  const randomIndex = getRandomIntegerNumber(0, array.length);
-
-  return array[randomIndex];
 };
 
 // Получает случайную дату в диапазоне неделю до или неделю после текущей даты
@@ -39,15 +33,10 @@ const generateRepeatingDays = () => {
   });
 };
 
-// Получает случаное целое число в заданном диапазоне
-const getRandomIntegerNumber = (min, max) => {
-  return min + Math.floor(Math.random() * (max - min));
-};
-
 // Возвращает объект для задачи
 const generateTask = () => {
   // Получает дату выполнения по условию
-  const dueDate = Math.random > 0.5 ? null : getRandomDate();
+  const dueDate = Math.random > 0.5 ? getRandomDate() : null;
 
   return {
     description: getRandomArrayItem(DescriptionItems),
