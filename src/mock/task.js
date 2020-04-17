@@ -36,12 +36,12 @@ const generateRepeatingDays = () => {
 // Возвращает объект для задачи
 const generateTask = () => {
   // Получает дату выполнения по условию
-  const dueDate = Math.random > 0.5 ? getRandomDate() : null;
+  const dueDate = Math.random > 0.5 ? null : getRandomDate();
 
   return {
     description: getRandomArrayItem(DescriptionItems),
     dueDate,
-    repeatingDays: dueDate ? DefaultRepeatingDays : generateRepeatingDays(),
+    repeatingDays: dueDate ? generateRepeatingDays() : DefaultRepeatingDays,
     color: getRandomArrayItem(COLORS),
     isArchive: Math.random() > 0.5,
     isFavorite: Math.random() > 0.5,
