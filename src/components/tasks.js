@@ -1,20 +1,20 @@
 import {createElement} from "../utils";
 
-// Возвращает разметку блока доска
-const createBoardTemplate = () => {
+// Возвращает разметку блока задачи
+const createTasksTemplate = () => {
   return (
-    `<section class="board container"></section>`
+    `<div class="board__tasks"></div>`
   );
 };
 
-// Класс доски
-export default class Board {
+// Класс задачи
+export default class Tasks {
   constructor() {
     this._element = null;
   }
 
   getTemplate() {
-    return createBoardTemplate();
+    return createTasksTemplate();
   }
 
   getElement() {
