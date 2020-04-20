@@ -1,5 +1,5 @@
 import {COLORS, DAYS, MONTH_NAMES} from "../const.js";
-import {formatTime} from "../utils.js";
+import {createElement, formatTime} from "../utils.js";
 
 // Возвращает разметку блока цвета
 const createColorsMarkup = (colors, currentColor) => {
@@ -43,7 +43,7 @@ const createRepeatingDaysMarkup = (days, repeatingDays) => {
 };
 
 // Возвращает разметку блока карточки редактирования
-export const createTaskEditTemplate = (task) => {
+const createTaskEditTemplate = (task) => {
   // Деструктурирует полученные данные
   const {description, dueDate, color, repeatingDays} = task;
 
@@ -129,3 +129,27 @@ export const createTaskEditTemplate = (task) => {
   </article>`
   );
 };
+
+// Класс карточки редактирования
+export default class TaskEdit {
+  constructor(task) {
+    this._task = task;
+    this._element = null;
+  }
+
+  getTemplate() {
+    return createTaskEditTemplate(this._task);
+  }
+
+  getElement() {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+
+    return this._element;
+  }
+
+  removeElement() {
+    this._element = null;
+  }
+}

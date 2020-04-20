@@ -4,7 +4,7 @@ import {createLoadMoreButtonTemplate} from "./components/load-more-button";
 import {createTaskEditTemplate} from "./components/task-edit";
 import {createTaskTemplate} from "./components/task";
 import {createSiteMenuTemplate} from "./components/site-menu";
-import {createSortingTemplate} from "./components/sorting";
+import {createSortTemplate} from "./components/sorting";
 import {generateFilters} from "./mock/filter";
 import {generateTasks} from "./mock/task";
 
@@ -40,7 +40,7 @@ const boardElement = siteMainElement.querySelector(`.board`);
 const taskListElement = siteMainElement.querySelector(`.board__tasks`);
 
 // Добавление блока сортировка в DOM
-render(boardElement, createSortingTemplate(), `afterbegin`);
+render(boardElement, createSortTemplate(), `afterbegin`);
 
 // Добавление блока карточки редактирования в DOM
 render(taskListElement, createTaskEditTemplate(tasks[0]));

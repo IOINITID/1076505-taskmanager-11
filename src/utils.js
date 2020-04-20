@@ -23,4 +23,12 @@ const getRandomArrayItem = (array) => {
   return array[randomIndex];
 };
 
+// Создает дом элемент из разметки
+export const createElement = (template) => {
+  const newElement = document.createElement(`div`);
+  newElement.innerHTML = template;
+
+  return newElement.firstChild;
+};
+
 export {getRandomIntegerNumber, getRandomArrayItem};
