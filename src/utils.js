@@ -1,3 +1,9 @@
+// Позиция отрисовки
+export const RenderPosition = {
+  AFTERBEGIN: `afterbegin`,
+  BEFOREEND: `beforeend`,
+};
+
 // Обработка формата времени
 const castTimeFormat = (value) => {
   return value < 10 ? `0${value}` : String(value);
@@ -12,12 +18,12 @@ export const formatTime = (date) => {
 };
 
 // Получает случаное целое число в заданном диапазоне
-const getRandomIntegerNumber = (min, max) => {
+export const getRandomIntegerNumber = (min, max) => {
   return min + Math.floor(Math.random() * (max - min));
 };
 
 // Возвращает случайный элемент массива
-const getRandomArrayItem = (array) => {
+export const getRandomArrayItem = (array) => {
   const randomIndex = getRandomIntegerNumber(0, array.length);
 
   return array[randomIndex];
@@ -31,4 +37,14 @@ export const createElement = (template) => {
   return newElement.firstChild;
 };
 
-export {getRandomIntegerNumber, getRandomArrayItem};
+// Добавляет элемент в DOM дерево
+export const render = (container, element, place) => {
+  switch (place) {
+    case RenderPosition.AFTERBEGIN:
+      container.prepend(element);
+      break;
+    case RenderPosition.BEFOREEND:
+      container.append(element);
+      break;
+  }
+};
