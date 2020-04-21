@@ -11,7 +11,7 @@ import {generateTasks} from "./mock/task";
 import {generateFilters} from "./mock/filter";
 import {render, RenderPosition} from "./utils";
 
-// Количество карточек
+// Количество карточек задач
 const TASK_COUNT = 20;
 const SHOWING_TASK_COUNT_ON_START = 8;
 const SHOWING_TASK_COUNT_BY_BUTTON = 8;
