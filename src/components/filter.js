@@ -1,3 +1,5 @@
+import {createElement} from "../utils";
+
 // Возвращает разметку блока элемент фильтра
 const createFilterMarkup = (filter, isChecked) => {
   // Деструктурирует полученные данные
@@ -19,7 +21,7 @@ const createFilterMarkup = (filter, isChecked) => {
 };
 
 // Возвращает разметку блока фильтр
-export const createFilterTemplate = (filters) => {
+const createFilterTemplate = (filters) => {
   // Возвращает разметку с элементами фильтра
   const filtersMarkup = filters.map((it, i) => createFilterMarkup(it, i === 0)).join(`\n`);
 
@@ -29,3 +31,27 @@ export const createFilterTemplate = (filters) => {
   </section>`
   );
 };
+
+// Класс фильтр
+export default class Filter {
+  constructor(filters) {
+    this._filters = filters;
+    this._element = null;
+  }
+
+  getTemplate() {
+    return createFilterTemplate(this._filters);
+  }
+
+  getElement() {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+
+    return this._element;
+  }
+
+  removeElement() {
+    this._element = null;
+  }
+}
