@@ -1,4 +1,4 @@
-import {createElement} from "../utils";
+import {createElement} from "../utils/render";
 
 // Класс абстрактного компонента
 export default class AbstractComponent {
