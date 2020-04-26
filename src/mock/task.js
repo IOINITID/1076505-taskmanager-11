@@ -1,5 +1,5 @@
 import {COLORS} from "../const.js";
-import {getRandomIntegerNumber, getRandomArrayItem} from "../utils.js";
+import {getRandomIntegerNumber, getRandomArrayItem} from "../utils/common";
 
 // Описание карточек
 const DescriptionItems = [`Изучить теорию`, `Сделать домашку`, `Пройти интенсив на соточку`];

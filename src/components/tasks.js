@@ -1,4 +1,4 @@
-import {createElement} from "../utils";
+import AbstractComponent from "./abstract-component";
 
 // Возвращает разметку блока задачи
 const createTasksTemplate = () => {
@@ -8,24 +8,8 @@ const createTasksTemplate = () => {
 };
 
 // Класс задачи
-export default class Tasks {
-  constructor() {
-    this._element = null;
-  }
-
+export default class Tasks extends AbstractComponent {
   getTemplate() {
     return createTasksTemplate();
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
   }
 }
