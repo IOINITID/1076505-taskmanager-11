@@ -6,7 +6,7 @@ import {generateTasks} from "./mock/task";
 import {generateFilters} from "./mock/filter";
 import {render, RenderPosition} from "./utils/render";
 
-// Количество карточек задач
+// Количество задач
 const TASK_COUNT = 20;
 
 // Объявление контейнеров для добавления разметки
