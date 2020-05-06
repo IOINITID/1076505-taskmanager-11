@@ -2,9 +2,7 @@ import AbstractSmartComponent from "./abstract-smart-component";
 import {COLORS, DAYS, MONTH_NAMES} from "../const";
 import {formatTime} from "../utils/common";
 
-const isRepeating = (repeatingDays) => {
-  return Object.values(repeatingDays).some(Boolean);
-};
+const isRepeating = (repeatingDays) => Object.values(repeatingDays).some(Boolean);
 
 // Возвращает разметку блока цвета
 const createColorsMarkup = (colors, currentColor) => {
