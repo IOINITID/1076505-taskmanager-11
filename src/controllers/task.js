@@ -7,7 +7,6 @@ const Mode = {
   EDIT: `edit`,
 };
 
-
 export default class TaskController {
   constructor(container, onDataChange, onViewChange) {
     this._container = container;

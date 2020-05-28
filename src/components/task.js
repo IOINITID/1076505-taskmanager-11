@@ -1,9 +1,7 @@
 import AbstractComponent from "./abstract-component";
 import {formatTime, formatDate} from "../utils/common.js";
 
-// Возвращает разметку блока карточки
 const createTaskTemplate = (task) => {
-  // Деструктурирует полученные данные
   const {description, dueDate, color, repeatingDays, isArchive, isFavorite} = task;
 
   const isExpired = dueDate instanceof Date && dueDate < Date.now();
@@ -64,7 +62,6 @@ const createTaskTemplate = (task) => {
   );
 };
 
-// Класс карточки задачи
 export default class Task extends AbstractComponent {
   constructor(task) {
     super();

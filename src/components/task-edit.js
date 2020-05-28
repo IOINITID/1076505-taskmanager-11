@@ -7,7 +7,6 @@ import "flatpickr/dist/flatpickr.min.css";
 
 const isRepeating = (repeatingDays) => Object.values(repeatingDays).some(Boolean);
 
-// Возвращает разметку блока цвета
 const createColorsMarkup = (colors, currentColor) => {
   return colors.map((color, index) => {
     return (
@@ -28,7 +27,6 @@ const createColorsMarkup = (colors, currentColor) => {
   }).join(`\n`);
 };
 
-// Возвращает разметку блока повторяющиеся дни
 const createRepeatingDaysMarkup = (days, repeatingDays) => {
   return days.map((day, index) => {
     const isChecked = repeatingDays[day];
@@ -48,9 +46,7 @@ const createRepeatingDaysMarkup = (days, repeatingDays) => {
   }).join(`\n`);
 };
 
-// Возвращает разметку блока карточки редактирования
 const createTaskEditTemplate = (task, options) => {
-  // Деструктурирует полученные данные
   const {description, dueDate, color} = task;
   const {isDateShowing, isRepeatingTask, activeRepeatingDays} = options;
 
@@ -60,7 +56,6 @@ const createTaskEditTemplate = (task, options) => {
   const date = (isDateShowing && dueDate) ? formatDate(dueDate) : ``;
   const time = (isDateShowing && dueDate) ? formatTime(dueDate) : ``;
 
-  // const isRepeatingTask = Object.values(repeatingDays).some(Boolean);
   const repeatClass = isRepeatingTask ? `card--repeat` : ``;
   const deadlineClass = isExpired ? `card--deadline` : ``;
 
@@ -137,7 +132,6 @@ const createTaskEditTemplate = (task, options) => {
   );
 };
 
-// Класс карточки редактирования
 export default class TaskEdit extends AbstractSmartComponent {
   constructor(task) {
     super();
@@ -197,9 +191,9 @@ export default class TaskEdit extends AbstractSmartComponent {
       this._flatpickr = flatpickr(dateElement, {
         altInput: true,
         allowInput: true,
+        altFormat: `j F H:m`,
         defaultDate: this._task.dueDate || `today`,
         enableTime: true,
-        dateFormat: `Y-m-d H:i`,
       });
     }
   }
