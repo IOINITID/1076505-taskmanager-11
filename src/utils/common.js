@@ -1,6 +1,5 @@
 import moment from "moment";
 
-// Возвращает время в нужном формате
 export const formatTime = (date) => {
   return moment(date).format(`hh:mm`);
 };
@@ -9,14 +8,16 @@ export const formatDate = (date) => {
   return moment(date).format(`DD MMMM`);
 };
 
-// Получает случаное целое число в заданном диапазоне
-export const getRandomIntegerNumber = (min, max) => {
-  return min + Math.floor(Math.random() * (max - min));
+export const isRepeating = (repeatingDays) => {
+  return Object.values(repeatingDays).some(Boolean);
 };
 
-// Возвращает случайный элемент массива
-export const getRandomArrayItem = (array) => {
-  const randomIndex = getRandomIntegerNumber(0, array.length);
+export const isOverdueDate = (dueDate, date) => {
+  return dueDate < date && !isOneDay(date, dueDate);
+};
 
-  return array[randomIndex];
+export const isOneDay = (dateA, dateB) => {
+  const a = moment(dateA);
+  const b = moment(dateB);
+  return a.diff(b, `days`) === 0 && dateA.getDate() === dateB.getDate();
 };
