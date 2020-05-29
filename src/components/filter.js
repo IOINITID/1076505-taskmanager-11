@@ -1,4 +1,4 @@
-import AbstractComponent from "./abstract-component";
+import AbstractComponent from "./abstract-component.js";
 
 const FILTER_ID_PREFIX = `filter__`;
 
@@ -7,19 +7,18 @@ const getFilterNameById = (id) => {
 };
 
 const createFilterMarkup = (filter, isChecked) => {
-  const {title, count} = filter;
+  const {name, count} = filter;
 
   return (
     `<input
       type="radio"
-      id="filter__${title}"
+      id="filter__${name}"
       class="filter__input visually-hidden"
       name="filter"
       ${isChecked ? `checked` : ``}
-      ${count ? `` : `disabled`}
     />
-    <label for="filter__${title}" class="filter__label">
-    ${title} <span class="filter__${title}-count">${count}</span></label
+    <label for="filter__${name}" class="filter__label">
+      ${name} <span class="filter__${name}-count">${count}</span></label
     >`
   );
 };
@@ -27,11 +26,9 @@ const createFilterMarkup = (filter, isChecked) => {
 const createFilterTemplate = (filters) => {
   const filtersMarkup = filters.map((it) => createFilterMarkup(it, it.checked)).join(`\n`);
 
-  return (
-    `<section class="main__filter filter container">
+  return `<section class="main__filter filter container">
     ${filtersMarkup}
-  </section>`
-  );
+  </section>`;
 };
 
 export default class Filter extends AbstractComponent {

@@ -1,10 +1,8 @@
-// Позиция отрисовки
 export const RenderPosition = {
   AFTERBEGIN: `afterbegin`,
-  BEFOREEND: `beforeend`,
+  BEFOREEND: `beforeend`
 };
 
-// Создает дом элемент из разметки
 export const createElement = (template) => {
   const newElement = document.createElement(`div`);
   newElement.innerHTML = template;
@@ -12,7 +10,6 @@ export const createElement = (template) => {
   return newElement.firstChild;
 };
 
-// Добавляет компонент в DOM дерево
 export const render = (container, component, place) => {
   switch (place) {
     case RenderPosition.AFTERBEGIN:
@@ -24,7 +21,6 @@ export const render = (container, component, place) => {
   }
 };
 
-// Меняет местами компоненты DOM дерева
 export const replace = (newComponent, oldComponent) => {
   const parentElement = oldComponent.getElement().parentElement;
   const newElement = newComponent.getElement();
@@ -37,7 +33,6 @@ export const replace = (newComponent, oldComponent) => {
   }
 };
 
-// Удаляет компонент
 export const remove = (component) => {
   component.getElement().remove();
   component.removeElement();

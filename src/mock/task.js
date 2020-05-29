@@ -1,7 +1,10 @@
 import {COLORS} from "../const.js";
-import {getRandomIntegerNumber, getRandomArrayItem} from "../utils/common";
 
-const DescriptionItems = [`Изучить теорию`, `Сделать домашку`, `Пройти интенсив на соточку`];
+const DescriptionItems = [
+  `Изучить теорию`,
+  `Сделать домашку`,
+  `Пройти интенсив на соточку`,
+];
 
 const DefaultRepeatingDays = {
   "mo": false,
@@ -11,6 +14,17 @@ const DefaultRepeatingDays = {
   "fr": false,
   "sa": false,
   "su": false,
+};
+
+
+const getRandomArrayItem = (array) => {
+  const randomIndex = getRandomIntegerNumber(0, array.length);
+
+  return array[randomIndex];
+};
+
+const getRandomIntegerNumber = (min, max) => {
+  return min + Math.floor(Math.random() * (max - min));
 };
 
 const getRandomDate = () => {
@@ -44,7 +58,10 @@ const generateTask = () => {
 };
 
 const generateTasks = (count) => {
-  return new Array(count).fill(``).map(generateTask);
+  return new Array(count)
+    .fill(``)
+    .map(generateTask);
 };
+
 
 export {generateTask, generateTasks};
