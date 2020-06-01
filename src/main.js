@@ -22,6 +22,7 @@ const dateFrom = (() => {
   return d;
 })();
 
+
 const api = new API(END_POINT, AUTHORIZATION);
 const store = new Store(STORE_NAME, window.localStorage);
 const apiWithProvider = new Provider(api, store);
