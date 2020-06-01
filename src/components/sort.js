@@ -16,6 +16,7 @@ const createSortTemplate = () => {
   );
 };
 
+
 export default class Sort extends AbstractComponent {
   constructor() {
     super();
